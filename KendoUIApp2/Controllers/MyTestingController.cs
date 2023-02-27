@@ -1,7 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
-using Kendo.Mvc.Extensions;
-using Kendo.Mvc.UI;
 using KendoUIApp2.Models;
 
 namespace KendoUIApp2.Controllers
@@ -31,12 +29,6 @@ namespace KendoUIApp2.Controllers
         {
             ViewBag.Models = models;
             return View();
-        }
-
-        public ActionResult GetProducts([DataSourceRequest] DataSourceRequest dataSourceRequest)
-        {
-            DataSourceResult result = models.ToDataSourceResult(dataSourceRequest);
-            return Json(result);
         }
     }
 }
