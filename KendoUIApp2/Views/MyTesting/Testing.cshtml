@@ -1,0 +1,27 @@
+﻿@model KendoUIApp2.Models.TestingModel
+
+@{
+    ViewBag.Title = "Testing";
+}
+@Scripts.Render("~/Kendo")
+@using Kendo.Mvc.UI;
+
+
+<h2>Testing</h2>
+
+<div>
+    <h4>TestingModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+    </dl>
+</div>
+<p>
+    @{Html.RenderPartial("MyPartialView"); }
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+    @(Html.Kendo().Grid((IEnumerable<KendoUIApp2.Models.TestingModel>)ViewBag.Models)
+                        .Name("grid")
+                        .Columns(columns => { columns.Bound(m => m.Id); columns.Bound(m => m.Name); } )
+                        .Pageable()
+                        .Sortable())
+</p>
